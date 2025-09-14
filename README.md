@@ -2,7 +2,7 @@
 
 ## 🎯 **Project Overview**
 
-This repository documents the process of me attempting reverse engineering Minecraft's obfuscated Java classes through JNI reflection, with a focus on discovering method signatures and accessing game state from native code.
+This repository documents the process of me attempting to reverse engineering Minecraft's obfuscated Java classes through JNI reflection, with a focus on discovering method signatures and accessing game state from native code.
 
 ### **Target Version**
 - **Minecraft**: 1.16.1
@@ -21,7 +21,7 @@ dlx (Minecraft Main Class)
 ```
 
 ## 📊 **What Works**
-1. **JNI Reflection**: Using `getDeclaredMethods()` and `getDeclaredFields()`
+1. **JNI Reflection**: 
 2. **Player Data Access**: Position, rotation, boolean states work perfectly
 3. **Method Discovery**: Successfully found `dlx.Z()` → `aom` player method
 4. **Field Access**: Direct field access using obfuscated names (cc, cd, ce, cf, cg)
@@ -30,10 +30,9 @@ dlx (Minecraft Main Class)
 ## 📚 **References**
 
 - [JNI Specification](https://docs.oracle.com/javase/8/docs/technotes/guides/jni/)
-- [Minecraft Obfuscation Mappings](https://github.com/FabricMC/yarn)
+- [Minecraft Obfuscation Mappings](https://piston-data.mojang.com/v1/objects/ddf517a4f6750f4c15189de4e03246ae1f916cf5/client.txt)
 - [Java Reflection Documentation](https://docs.oracle.com/javase/tutorial/reflect/)
 
 ---
 
 **Status**: Active Development | **Last Updated**: September 2025
-**Contributors**: AI Assistant + Human Researcher
