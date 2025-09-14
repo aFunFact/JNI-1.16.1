@@ -2,7 +2,7 @@
 
 ## 🎯 **Project Overview**
 
-This repository documents the process of me attempting to reverse engineering Minecraft's obfuscated Java classes through JNI reflection, with a focus on discovering method signatures and accessing game state from native code.
+This repository documents the process of me attempting to reverse engineer Minecraft's obfuscated Java classes, with a focus on discovering method signatures and accessing/manipulating game state from native code.
 
 ### **Target Version**
 - **Minecraft**: 1.16.1
@@ -10,23 +10,20 @@ This repository documents the process of me attempting to reverse engineering Mi
 - **JNI**: Native C++ DLL injection
 - **Platform**: Windows
 
-## 🔍 **Key Discoveries**
-
 ### **Minecraft Class Hierarchy (1.16.1)**
 ```
-dlx (Minecraft Main Class)
-  └── Z() method → aom (Entity/Player Class)
-      └── ??? method → beb (Inventory Class)
-          └── Fields: items array, selected slot, etc.
+  (dlx) this is minecraft's obfuscated class name, assign to a jclass
+    └── (B) capital B is important here, B is obfuscated to getInstance(), assign to a jmethodID, Minecraft is a singleton architecture, everything is passed through one instance/here
+      └── Z() method → aom (Entity base class)
 ```
 
-## 📊 **What Works**
+## 📊 **Reverse engineering techniques used**
 1. **JNI Reflection**: 
-2. **Player Data Access**: Position, rotation, boolean states work perfectly
-3. **Method Discovery**: Successfully found `dlx.Z()` → `aom` player method
-4. **Field Access**: Direct field access using obfuscated names (cc, cd, ce, cf, cg)
-5. **Class Finding**: `env->FindClass()` works for obfuscated names
+2. **Method Structure Indicators**: e.g. getInstance is a static method, can call without creating an instance, no parameters, typical singleton pattern
 
+## **Where I'm stuck**
+1. **JNI method signatures**: e.g. Z()
+   
 ## 📚 **References**
 
 - [JNI Specification](https://docs.oracle.com/javase/8/docs/technotes/guides/jni/)
