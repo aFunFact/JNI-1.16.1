@@ -18,11 +18,8 @@ This repository documents the process of me attempting to reverse engineer Minec
 ```
 
 ## 📊 **Reverse engineering techniques used**
-1. **JNI Reflection**: 
+1. **JNI Reflection**: Using Reflection to discover JNI type signatures/method signatures for finding functions
 2. **Method Structure Indicators**: e.g. getInstance is a static method, can call without creating an instance, no parameters, typical singleton pattern
-
-## **Where I'm stuck**
-1. **JNI method signatures**: e.g. Z()
    
 ## 📚 **References**
 
